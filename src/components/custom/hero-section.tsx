@@ -1,6 +1,38 @@
-import Link from "next/link";
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowDown, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FadeIn } from "@/components/custom/fade-in";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.7, ease: "easeOut" as const, delay: 0.3 },
+  },
+};
 
 export function HeroSection() {
   return (
@@ -12,52 +44,85 @@ export function HeroSection() {
       {/* Animated gradient background */}
       <div className="absolute inset-0 -z-10 animate-gradient" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
-          <FadeIn direction="left" className="space-y-6">
-            <h1
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="space-y-8"
+          >
+            <motion.div variants={itemVariants}>
+              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 mb-6">
+                Freelance Frontend Developer
+              </span>
+            </motion.div>
+
+            <motion.h1
               id="hero-heading"
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground"
+              variants={itemVariants}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]"
             >
-              Desarrollador Frontend | Especialista en Next.js 15 + shadcn/ui + Tailwind | Creo MVPs rápidos y hermosos para startups y emprendedores
-            </h1>
+              Creo productos digitales{" "}
+              <span className="text-primary">rápidos</span>,{" "}
+              <span className="text-primary">hermosos</span> y que{" "}
+              <span className="text-accent">convierten</span>
+            </motion.h1>
 
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl">
-              Transformo ideas en productos digitales de alta calidad. Enfoque en UX, performance y conversión.
-            </p>
+            <motion.p
+              variants={itemVariants}
+              className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed"
+            >
+              Especialista en <strong className="text-foreground">Next.js 15</strong>,{" "}
+              <strong className="text-foreground">shadcn/ui</strong> y{" "}
+              <strong className="text-foreground">Tailwind</strong>. Ayudo a startups y emprendedores de LatAm a lanzar MVPs en tiempo récord.
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg">
-                <a href="#contact">Contactame</a>
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 pt-2"
+            >
+              <Button size="lg" className="group text-base px-8" render={<a href="#projects" />}>
+                Ver mis proyectos
+                <ArrowDown className="ml-2 h-4 w-4 inline-block transition-transform group-hover:translate-y-0.5" />
               </Button>
-              <Button size="lg" variant="outline">
-                <a href="#projects">Proyectos</a>
+              <Button
+                size="lg"
+                variant="outline"
+                className="group text-base px-8 border-primary/30 hover:bg-primary/10 hover:text-primary"
+                render={
+                  <a
+                    href="https://wa.me/5491134567890?text=Hola%20Rafael%2C%20vi%20tu%20portfolio%20y%20me%20gustar%C3%ADa%20charlar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  />
+                }
+              >
+                Hablemos por WhatsApp
+                <MessageCircle className="ml-2 h-4 w-4 inline-block transition-transform group-hover:scale-110" />
               </Button>
-            </div>
-          </FadeIn>
+            </motion.div>
+          </motion.div>
 
-          {/* Avatar / Photo */}
-          <FadeIn direction="right" delay={0.2} className="flex justify-center lg:justify-end">
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-border/50 shadow-2xl">
-              {/* TODO: Replace with actual avatar image - ADD priority={true} when real image is added for LCP */}
-              <div className="absolute inset-0 bg-muted flex items-center justify-center">
-                <span className="text-muted-foreground text-lg">Foto de Perfil</span>
-              </div>
-              {/* When real image is available, uncomment below:
+          {/* Avatar */}
+          <motion.div
+            variants={imageVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex justify-center lg:justify-end"
+          >
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl ring-4 ring-primary/10">
               <Image
-                src="/images/avatar.webp"
-                alt="Rafael Strongoli"
+                src="/images/1000000136.jpg"
+                alt="Rafael Strongoli — Desarrollador Frontend"
                 fill
                 priority
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,..."
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
-              */}
             </div>
-          </FadeIn>
+          </motion.div>
         </div>
       </div>
     </section>
