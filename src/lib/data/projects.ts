@@ -2,14 +2,14 @@ import type { Project, ProjectId } from "../types";
 
 export const PROJECTS = [
   {
-    id: "landing-santiago-garcia" as ProjectId,
-    title: "Landing Santiago García",
+    id: "landing-santicuore-ph" as ProjectId,
+    title: "Landing Page – SantiCuore PH (FooTalent Group)",
     description:
-      "Landing page de conversión para coach de vida con formulario de contacto, integración WhatsApp y animaciones fluidas.",
+      "Participé como Desarrollador Frontend en el desarrollo de una landing page profesional para SantiCuore PH, fotógrafo y creador audiovisual. El proyecto incluye diseño visual impactante, optimización SEO, estructura semántica y excelente experiencia de usuario responsive. Desarrollado en equipo multidisciplinario (FooTalent Group).",
     image: "/images/projects/landing-santiago.webp",
-    tags: ["Next.js 15", "TypeScript", "Tailwind", "Framer Motion"],
-    liveUrl: "https://santiagogarcia.com.ar",
-    githubUrl: null,
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    liveUrl: "https://www.santicuoreph.com/",
+    githubUrl: "https://github.com/FooTalentGroup/Landing-SantiCuoreph",
     featured: true,
   },
   {

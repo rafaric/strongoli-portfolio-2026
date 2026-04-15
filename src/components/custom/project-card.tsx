@@ -17,6 +17,8 @@ const TECH_COLORS: Record<string, string> = {
   React: "bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20",
   TypeScript:
     "bg-blue-600/10 text-blue-600 dark:text-blue-400 border-blue-600/20",
+  "Tailwind CSS":
+    "bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-500/20",
   Tailwind:
     "bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-500/20",
   "shadcn/ui":
@@ -40,7 +42,7 @@ function getTagClass(tag: string): string {
 
 /* Per-project gradient backgrounds for the placeholder area */
 const PROJECT_GRADIENTS: Record<string, string> = {
-  "landing-santiago-garcia":
+  "landing-santicuore-ph":
     "from-primary/5 via-background to-accent/5",
   "estadisticas-mundiales":
     "from-sky-500/5 via-background to-emerald-500/5",
