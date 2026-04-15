@@ -23,51 +23,46 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Cloud,
 };
 
+const LEVEL_CONFIG = {
+  expert: {
+    label: "Experto",
+    ring: "ring-2 ring-primary/40",
+    bg: "bg-primary/10",
+  },
+  advanced: {
+    label: "Avanzado",
+    ring: "ring-1 ring-primary/20",
+    bg: "bg-primary/5",
+  },
+  intermediate: {
+    label: "Intermedio",
+    ring: "ring-1 ring-border",
+    bg: "bg-muted",
+  },
+};
+
 interface SkillBadgeProps {
   skill: Skill;
 }
 
 export function SkillBadge({ skill }: SkillBadgeProps) {
-  // Level indicator configuration
-  const levelConfig = {
-    expert: {
-      dotSize: "size-3",
-      opacity: "opacity-100",
-      label: "Experto",
-    },
-    advanced: {
-      dotSize: "size-2.5",
-      opacity: "opacity-70",
-      label: "Avanzado",
-    },
-    intermediate: {
-      dotSize: "size-2",
-      opacity: "opacity-50",
-      label: "Intermedio",
-    },
-  };
-
-  const config = levelConfig[skill.level];
   const IconComponent = ICON_MAP[skill.iconName] ?? Code2;
+  const config = LEVEL_CONFIG[skill.level];
 
   return (
     <div
       className={cn(
-        "flex items-center gap-2 rounded-lg border bg-card px-3 py-2",
-        "transition-colors hover:bg-accent/10"
+        "group inline-flex items-center gap-2.5 rounded-xl px-4 py-3 transition-all duration-200 hover:shadow-md hover:shadow-primary/5 cursor-default",
+        "border border-border hover:border-primary/30",
+        config.bg,
       )}
-      title={`${skill.name} - ${config.label}`}
+      title={`${skill.name} — ${config.label}`}
     >
-      <IconComponent className="size-5 text-primary" />
+      <IconComponent className="size-5 text-primary shrink-0 transition-transform duration-200 group-hover:scale-110" />
       <span className="text-sm font-medium text-foreground">{skill.name}</span>
-      <span
-        className={cn(
-          "ml-auto rounded-full bg-primary",
-          config.dotSize,
-          config.opacity
-        )}
-        aria-label={`Nivel: ${config.label}`}
-      />
+      <span className={cn("text-[10px] font-medium text-muted-foreground ml-auto uppercase tracking-wider")}>
+        {config.label}
+      </span>
     </div>
   );
 }

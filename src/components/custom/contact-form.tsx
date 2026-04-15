@@ -7,10 +7,9 @@ import type { ActionResult } from "@/lib/types";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Send, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Initial state for the form
 const initialState: ActionResult<ContactFormData> | null = null;
 
 export function ContactForm() {
@@ -19,10 +18,8 @@ export function ContactForm() {
     FormData
   >(submitContact, initialState);
 
-  // Client-side validation with Zod safeParse
   const validateField = (field: string, value: string): string | null => {
     const partialData = { [field]: value };
-    // For name and email, we validate the specific field
     if (field === "name") {
       const result = contactSchema.safeParse({
         ...partialData,
@@ -59,24 +56,34 @@ export function ContactForm() {
     return null;
   };
 
-  // Handle success state
   if (state?.success) {
     return (
       <div
-        className="flex flex-col items-center justify-center rounded-lg border bg-card p-8 text-center"
+        className="flex flex-col items-center justify-center rounded-2xl border border-green-500/30 bg-green-500/5 p-8 text-center"
         role="status"
         aria-live="polite"
       >
         <CheckCircle2 className="size-16 text-green-500 mb-4" />
-        <p className="text-lg font-medium text-foreground">
-          ¡Mensaje enviado! Te respondo pronto.
+        <p className="text-xl font-semibold text-foreground mb-2">
+          ¡Mensaje enviado!
+        </p>
+        <p className="text-muted-foreground">
+          Te respondo en menos de 24hs.Gracias por escribirme.
         </p>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-lg">
+    <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+      <div className="mb-6">
+        <h3 className="text-lg font-semibold text-foreground">Enviame un mensaje</h3>
+        <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1.5">
+          <Clock className="size-3.5" />
+          Respondo en menos de 24hs
+        </p>
+      </div>
+
       {/* Error Banner */}
       {state?.success === false && (
         <div
@@ -89,8 +96,8 @@ export function ContactForm() {
         </div>
       )}
 
-      <form action={formAction} className="space-y-4">
-        {/* Name Field */}
+      <form action={formAction} className="space-y-5">
+        {/* Name */}
         <div className="space-y-2">
           <label
             htmlFor="name"
@@ -106,11 +113,12 @@ export function ContactForm() {
             required
             minLength={2}
             disabled={isPending}
+            className="h-11"
             aria-describedby={state?.success === false ? "form-error" : undefined}
           />
         </div>
 
-        {/* Email Field */}
+        {/* Email */}
         <div className="space-y-2">
           <label
             htmlFor="email"
@@ -125,11 +133,12 @@ export function ContactForm() {
             placeholder="tu@email.com"
             required
             disabled={isPending}
+            className="h-11"
             aria-describedby={state?.success === false ? "form-error" : undefined}
           />
         </div>
 
-        {/* Message Field */}
+        {/* Message */}
         <div className="space-y-2">
           <label
             htmlFor="message"
@@ -149,13 +158,24 @@ export function ContactForm() {
           />
         </div>
 
-        {/* Submit Button */}
+        {/* Submit */}
         <Button
           type="submit"
           disabled={isPending}
-          className={cn("w-full", isPending && "opacity-70")}
+          size="lg"
+          className={cn("w-full text-base", isPending && "opacity-70")}
         >
-          {isPending ? "Enviando..." : "Enviar mensaje"}
+          {isPending ? (
+            <>
+              <span className="inline-block size-4 animate-spin rounded-full border-2 border-current border-t-transparent mr-2" />
+              Enviando...
+            </>
+          ) : (
+            <>
+              Enviar mensaje
+              <Send className="ml-2 size-4" />
+            </>
+          )}
         </Button>
       </form>
     </div>
