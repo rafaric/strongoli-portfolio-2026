@@ -7,7 +7,7 @@ export const PROJECTS = [
     description:
       "Participé como Desarrollador Frontend en el desarrollo de una landing page profesional para SantiCuore PH, fotógrafo y creador audiovisual. El proyecto incluye diseño visual impactante, optimización SEO, estructura semántica y excelente experiencia de usuario responsive. Desarrollado en equipo multidisciplinario (FooTalent Group).",
     image: "/images/projects/landing-santiago.webp",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     liveUrl: "https://www.santicuoreph.com/",
     githubUrl: "https://github.com/FooTalentGroup/Landing-SantiCuoreph",
     featured: true,
