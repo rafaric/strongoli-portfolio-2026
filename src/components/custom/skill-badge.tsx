@@ -1,3 +1,6 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import type { Skill } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import {
@@ -46,13 +49,14 @@ interface SkillBadgeProps {
 }
 
 export function SkillBadge({ skill }: SkillBadgeProps) {
+  const shouldReduceMotion = useReducedMotion();
   const IconComponent = ICON_MAP[skill.iconName] ?? Code2;
   const config = LEVEL_CONFIG[skill.level];
 
-  return (
+  const content = (
     <div
       className={cn(
-        "group inline-flex items-center gap-2.5 rounded-xl px-4 py-3 transition-all duration-200 hover:shadow-md hover:shadow-primary/5 cursor-default",
+        "inline-flex items-center gap-2.5 rounded-xl px-4 py-3 transition-all duration-200 hover:shadow-md hover:shadow-primary/5 cursor-default",
         "border border-border hover:border-primary/30",
         config.bg,
       )}
@@ -64,5 +68,18 @@ export function SkillBadge({ skill }: SkillBadgeProps) {
         {config.label}
       </span>
     </div>
+  );
+
+  if (shouldReduceMotion) {
+    return content;
+  }
+
+  return (
+    <motion.div
+      whileHover={{ scale: 1.05, transition: { duration: 0.2, ease: "easeOut" as const } }}
+      className="group"
+    >
+      {content}
+    </motion.div>
   );
 }

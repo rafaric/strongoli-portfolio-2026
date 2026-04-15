@@ -1,5 +1,6 @@
 import { SERVICES } from "@/lib/data/services";
 import { ServiceCard } from "@/components/custom/service-card";
+import { FadeIn } from "@/components/custom/fade-in";
 
 export function ServicesSection() {
   return (
@@ -9,7 +10,7 @@ export function ServicesSection() {
       className="py-24 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12">
+        <FadeIn className="mb-12">
           <h2
             id="services-heading"
             className="text-3xl sm:text-4xl font-bold text-foreground"
@@ -20,7 +21,7 @@ export function ServicesSection() {
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
             Lo que puedo hacer por tu proyecto. Desde landing pages hasta dashboards, todo construido con velocidad y calidad.
           </p>
-        </div>
+        </FadeIn>
 
         <div className="grid gap-6 sm:grid-cols-2">
           {SERVICES.map((service, index) => (

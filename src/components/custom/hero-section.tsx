@@ -10,27 +10,27 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
+      staggerChildren: 0.12,
+      delayChildren: 0.15,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const },
+    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const },
   },
 };
 
 const imageVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.95 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.7, ease: "easeOut" as const, delay: 0.3 },
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const, delay: 0.25 },
   },
 };
 
@@ -85,7 +85,7 @@ export function HeroSection() {
             >
               <Button size="lg" className="group text-base px-8" render={<a href="#projects" />}>
                 Ver mis proyectos
-                <ArrowDown className="ml-2 h-4 w-4 inline-block transition-transform group-hover:translate-y-0.5" />
+                <ArrowDown className="ml-2 h-4 w-4 inline-block transition-transform duration-200 group-hover:translate-y-0.5" />
               </Button>
               <Button
                 size="lg"
@@ -100,7 +100,7 @@ export function HeroSection() {
                 }
               >
                 Hablemos por WhatsApp
-                <MessageCircle className="ml-2 h-4 w-4 inline-block transition-transform group-hover:scale-110" />
+                <MessageCircle className="ml-2 h-4 w-4 inline-block transition-transform duration-200 group-hover:scale-110" />
               </Button>
             </motion.div>
           </motion.div>
