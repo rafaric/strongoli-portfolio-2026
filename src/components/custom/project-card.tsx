@@ -155,7 +155,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         <h3 className="mb-2 text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
           {project.title}
         </h3>
-        <p className="mb-4 flex-1 text-sm text-muted-foreground leading-relaxed line-clamp-3">
+        <p className="mb-4 text-sm text-muted-foreground leading-relaxed">
           {project.description}
         </p>
 
