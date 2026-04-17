@@ -54,7 +54,7 @@ export function HeroSection() {
             className="space-y-8"
           >
             <motion.div variants={itemVariants}>
-              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 mb-6">
+              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/15 text-primary border border-primary/30 mb-6 shadow-sm">
                 Freelance Frontend Developer
               </span>
             </motion.div>
@@ -67,7 +67,7 @@ export function HeroSection() {
               Creo productos digitales{" "}
               <span className="text-primary">rápidos</span>,{" "}
               <span className="text-primary">hermosos</span> y que{" "}
-              <span className="text-accent">convierten</span>
+              <span className="text-accent">convierten</span>.
             </motion.h1>
 
             <motion.p

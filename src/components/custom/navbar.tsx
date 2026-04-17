@@ -141,7 +141,7 @@ export function Navbar() {
                   "text-sm font-medium transition-colors relative py-2 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded",
                   activeSection === link.href.slice(1)
                     ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
+                    : "text-foreground/80 hover:text-foreground"
                 )}
               >
                 {link.label}

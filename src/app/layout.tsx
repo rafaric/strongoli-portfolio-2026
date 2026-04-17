@@ -12,9 +12,24 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://strongoli.dev"),
-  title: "Rafael Strongoli — Frontend Developer",
+  title: {
+    default: "Rafael Strongoli — Frontend Developer",
+    template: "%s | Rafael Strongoli",
+  },
   description:
-    "Freelance frontend developer specializing in Next.js, React, and Tailwind. I build fast, conversion-focused web experiences for LatAm startups.",
+    "Freelance Frontend Developer especializado en Next.js, React y Tailwind. Construyo experiencias web rápidas, hermosas y que convierten para startups de LatAm.",
+  keywords: [
+    "Next.js developer",
+    "React developer",
+    "Frontend developer LatAm",
+    "Freelance developer",
+    "Next.js Argentina",
+    "React developer Buenos Aires",
+    "Tailwind CSS developer",
+    "TypeScript developer",
+  ],
+  authors: [{ name: "Rafael Strongoli" }],
+  creator: "Rafael Strongoli",
   openGraph: {
     type: "website",
     locale: "es_AR",
@@ -22,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Rafael Strongoli",
     title: "Rafael Strongoli — Frontend Developer",
     description:
-      "Freelance frontend developer specializing in Next.js, React, and Tailwind. I build fast, conversion-focused web experiences for LatAm startups.",
+      "Freelance Frontend Developer especializado en Next.js, React y Tailwind. Construyo experiencias web rápidas y que convierten.",
     images: [
       {
         url: "/images/og-image.png",
@@ -36,12 +51,19 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Rafael Strongoli — Frontend Developer",
     description:
-      "Freelance frontend developer specializing in Next.js, React, and Tailwind.",
+      "Freelance Frontend Developer especializado en Next.js, React y Tailwind.",
     images: ["/images/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
