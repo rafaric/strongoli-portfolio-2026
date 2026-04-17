@@ -50,7 +50,7 @@ const PROJECT_GRADIENTS: Record<string, string> = {
     "from-pink-500/5 via-background to-violet-500/5",
   "dashboard-admin":
     "from-violet-500/10 via-primary/5 to-sky-500/10",
-};
+}
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const shouldReduceMotion = useReducedMotion();
@@ -109,8 +109,17 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               </div>
             </div>
           </div>
+        ) : project.image ? (
+          // Real project image
+          <div className="absolute inset-0 flex items-center justify-center bg-muted/50">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="size-full object-cover"
+            />
+          </div>
         ) : (
-          /* Regular project — show title as placeholder */
+          // Fallback — show title as placeholder
           <div className="absolute inset-0 flex items-center justify-center">
             <p className="text-muted-foreground/60 text-sm font-medium">{project.title}</p>
           </div>
