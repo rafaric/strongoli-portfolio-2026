@@ -36,12 +36,12 @@ export const PROJECTS = [
   },
   {
     id: "dashboard-admin" as ProjectId,
-    title: "Dashboard Admin",
+    title: "BTS Army Admin Dashboard",
     description:
-      "Dashboard administrativo moderno con tabla sortable, gráficos interactivos, sidebar colapsable y tema dark. Construido con Next.js 15, shadcn/ui y TanStack Table.",
-    image: "/images/projects/dashboard.webp",
-    tags: ["Next.js 15", "shadcn/ui", "TanStack Table", "Recharts"],
-    liveUrl: null,
+      "Panel de administración full-stack construido con Next.js 14 App Router, TypeScript y Supabase. Incluye autenticación con guard de roles, métricas en tiempo real (usuarios activos, posts, encuestas), analytics con gráficos interactivos por miembro y era discográfica, gestión de usuarios con sistema de ban/unban, log de auditoría de acciones administrativas y modo demo con datos de muestra. UI con glassmorphism, tema oscuro y diseño responsive.",
+    image: "/images/projects/dashboard.png",
+    tags: ["Next.js", "TypeScript", "Supabase", "React Query", "Recharts", "Tailwind CSS"],
+    liveUrl: "https://bts-admin-dashboard-phi.vercel.app/dashboard",
     githubUrl: null,
     featured: false,
   },
