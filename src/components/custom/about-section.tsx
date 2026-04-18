@@ -23,8 +23,8 @@ export function AboutSection() {
         </FadeIn>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Photo - Left Column (desktop) */}
-          <FadeIn direction="right" delay={0.1} className="order-1 lg:order-1 flex justify-center lg:justify-start">
+          {/* Photo - Left Column (desktop only) */}
+          <FadeIn direction="right" delay={0.1} className="hidden lg:flex justify-center lg:justify-start">
             <div className="relative w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl ring-2 ring-primary/10">
               <Image
                 src="/images/1000000136.jpg"
