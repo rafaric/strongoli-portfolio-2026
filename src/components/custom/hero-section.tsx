@@ -54,7 +54,7 @@ export function HeroSection() {
             className="space-y-8"
           >
             <motion.div variants={itemVariants}>
-              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/15 text-primary border border-primary/30 mb-6 shadow-sm">
+              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/15 text-primary border border-primary/30 mb-6 shadow-sm animate-badge-glow">
                 Freelance Frontend Developer
               </span>
             </motion.div>
